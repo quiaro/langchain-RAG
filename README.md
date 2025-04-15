@@ -153,7 +153,7 @@ You can deploy the application as a single bundle, where the FastAPI backend ser
 3. Run the Docker container:
 
    ```bash
-   docker run -p 7860:7860 -e OPENAI_API_KEY=your_openai_api_key_here pythonic-rag:latest
+   docker run -p 7860:7860 -e OPENAI_API_KEY=your_openai_api_key_here langchain-rag:latest
    ```
 
 4. Access the application at `http://localhost:7860`

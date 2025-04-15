@@ -1,5 +1,5 @@
 {
-  "name": "pythonic-rag-frontend",
+  "name": "langchain-rag-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
