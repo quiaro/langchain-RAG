@@ -1,5 +1,5 @@
 ---
-title: RAG Application with FastAPI and React
+title: RAG Application with FastAPI, LangChain and React
 emoji: 📚
 colorFrom: indigo
 colorTo: purple
@@ -11,9 +11,9 @@ pinned: false
 short_description: Ask questions about an uploaded text or PDF file
 ---
 
-# RAG Application with FastAPI and React
+# RAG Application with FastAPI, LangChain and React
 
-This project implements a Retrieval-Augmented Generation (RAG) application that allows users to ask questions about uploaded text and PDF files. The app consists of a FastAPI backend and a React frontend.
+This project implements a Retrieval-Augmented Generation (RAG) application that allows users to ask questions about uploaded text and PDF files. The app consists of a FastAPI backend using LangChain and a React frontend.
 
 ## Features
 
@@ -37,8 +37,7 @@ This project implements a Retrieval-Augmented Generation (RAG) application that 
 │       ├── components/     # React components
 │       └── App.js          # Main React application
 ├── Dockerfile              # Docker configuration
-├── build-deploy.sh         # Script for building and deployment
-└── docker-build-verify.sh  # Script for verifying Docker image
+└── docker-build-verify.sh  # Script for building and verifying Docker image
 ```
 
 ## Setup and Installation
@@ -71,8 +70,8 @@ OPENAI_API_KEY=your_openai_api_key_here
 2. Create a virtual environment (optional but recommended):
 
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. Install dependencies:
@@ -110,33 +109,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ### Production Deployment
 
-#### Option 1: Combined Bundle Deployment
-
-You can deploy the application as a single bundle, where the FastAPI backend serves both the API endpoints and the frontend static files.
-
-1. Use the provided build script:
-
-   ```bash
-   chmod +x build-deploy.sh
-   ./build-deploy.sh
-   ```
-
-2. This will:
-
-   - Build the React frontend for production
-   - Copy all necessary files to a `dist` directory
-   - Install backend dependencies
-
-3. Run the combined application:
-
-   ```bash
-   cd dist
-   uvicorn main:app --host 0.0.0.0 --port 7860
-   ```
-
-4. Access the application at `http://localhost:7860`
-
-#### Option 2: Docker Deployment
+#### Option 1: Docker Deployment
 
 1. Build and verify the Docker image:
 
@@ -158,7 +131,7 @@ You can deploy the application as a single bundle, where the FastAPI backend ser
 
 4. Access the application at `http://localhost:7860`
 
-#### Option 3: Separate Frontend and Backend Deployment
+#### Option 2: Separate Frontend and Backend Deployment
 
 For more advanced production deployments, you can deploy the frontend and backend separately:
 
@@ -193,9 +166,7 @@ For more advanced production deployments, you can deploy the frontend and backen
 The backend provides the following API endpoints:
 
 - `POST /upload` - Upload a file and create a new session
-- `GET /session/{session_id}` - Get the status of a session
 - `POST /query` - Send a query to be answered based on the uploaded document
-- `DELETE /session/{session_id}` - Delete a session and its resources
 
 ## Technologies Used
 
@@ -204,7 +175,8 @@ The backend provides the following API endpoints:
   - FastAPI
   - OpenAI API
   - PyPDF2 for PDF processing
-  - Vector database for embeddings and similarity search
+  - Qdrant for vector database
+  - LangChain
 
 - **Frontend:**
   - React
