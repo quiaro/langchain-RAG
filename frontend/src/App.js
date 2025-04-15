@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import FileUpload from './components/FileUpload';
 import ChatInterface from './components/ChatInterface';
+import Typography from '@mui/material/Typography';
 
 // Create a dark theme
 const darkTheme = createTheme({
@@ -30,6 +31,14 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Container maxWidth="md" sx={{ pt: 4, pb: 4 }}>
+        <Typography
+          variant="h3"
+          component="h1"
+          gutterBottom
+          sx={{ mb: 4, textAlign: 'center' }}
+        >
+          LangChain Demo
+        </Typography>
         {status === 'error' || status !== 'ready' ? (
           <FileUpload
             setSessionId={setSessionId}

@@ -85,7 +85,7 @@ const FileUpload = ({ setFileName, setStatus, status }) => {
         justifyContent: 'center',
       }}
     >
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h4" component="h2" gutterBottom>
         Chat with Your Files
       </Typography>
 
