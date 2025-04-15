@@ -24,7 +24,9 @@ from qdrant_client.http.models import Distance, VectorParams
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from dotenv import load_dotenv
 
+load_dotenv()
 
 sys.path.append('..')
 # Determine the frontend build directory 
