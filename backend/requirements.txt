@@ -1,0 +1,15 @@
+fastapi==0.110.0
+uvicorn==0.27.1
+pydantic==2.6.3
+python-multipart==0.0.7
+openai==1.14.2
+httpx==0.26.0
+PyPDF2==3.0.1
+python-dotenv==1.0.0
+numpy
+langchain
+langchain_core
+langchain-community
+langchain_openai
+langchain_qdrant
+qdrant-client

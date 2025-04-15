@@ -1,0 +1,11 @@
+.DS_Store
+frontend/node_modules/
+
+__pycache__/
+.venv/ 
+.env
+.files/
+
+.vscode/
+dist/
+build/
